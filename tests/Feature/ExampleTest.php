@@ -7,15 +7,16 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    public function testApi()
     {
-        $response = $this->get('/');
+        $this->postJson('/some-route', ['field' => 'on'])
+            ->assertStatus(200)
+            ->assertJsonFragment(['error' => true]);
+    }
 
-        $response->assertStatus(200);
+    public function testApiWithMacro()
+    {
+        $this->postJson('/some-route', ['field' => 'on'])
+            ->assertErrorInResponse();
     }
 }

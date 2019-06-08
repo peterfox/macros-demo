@@ -38,12 +38,18 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/macros.php"
         ]
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/macros.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
